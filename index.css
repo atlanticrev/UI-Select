@@ -1,0 +1,150 @@
+ui-select {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  background: white;
+  box-shadow: 1px 2px 43px rgba(0, 0, 0, 0.12);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+ui-select * {
+  box-sizing: border-box;
+}
+ui-select > div {
+  width: 100%;
+}
+ui-select .select-display {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: inherit;
+  cursor: pointer;
+}
+ui-select .select-display .select-title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+}
+ui-select .select-display .select-title::after {
+  content: "";
+  background: url("./assets/filter-arrow.svg") center center no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  line-height: 10px;
+  color: black;
+}
+ui-select .select-display .select-title.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+ui-select .select-dropdown {
+  --dropdown-height: 350px;
+  --container-height: calc(var(--dropdown-height) * 1.2);
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  left: 0;
+  top: 100%;
+  max-height: var(--container-height);
+  overflow-y: hidden;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 999;
+  transition: max-height 0.25s;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.12);
+}
+ui-select .select-dropdown .select-input-wrapper {
+  position: relative;
+}
+ui-select .select-dropdown .select-input-wrapper input {
+  width: 100%;
+  height: 100%;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+ui-select .select-dropdown .select-input-wrapper input::placeholder {
+  color: rgba(0, 0, 0, 0.27);
+  font-size: 14px;
+  text-align: left;
+}
+ui-select .select-dropdown .select-input-wrapper .select-clear-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: none;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  line-height: 10px;
+  cursor: pointer;
+}
+ui-select .select-dropdown .select-input-wrapper .select-clear-input.hidden {
+  display: none;
+}
+ui-select .select-dropdown .options-container {
+  overflow-y: scroll;
+  max-height: var(--dropdown-height);
+}
+ui-select .select-dropdown .options-container .select-option, ui-select .select-dropdown .options-container .nothing-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 35px;
+  padding: 8px 12px;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+}
+ui-select .select-dropdown .options-container .select-option:hover, ui-select .select-dropdown .options-container .nothing-found:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+ui-select .select-dropdown .options-container .select-option:hover:last-child, ui-select .select-dropdown .options-container .nothing-found:hover:last-child {
+  border-bottom-left-radius: 8px;
+}
+ui-select .select-dropdown .options-container .select-option[data-selected=true], ui-select .select-dropdown .options-container [data-selected=true].nothing-found {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+ui-select .select-dropdown .options-container .select-option::-webkit-scrollbar-track, ui-select .select-dropdown .options-container .nothing-found::-webkit-scrollbar-track {
+  background-color: white;
+}
+ui-select .select-dropdown .options-container .select-option::-webkit-scrollbar, ui-select .select-dropdown .options-container .nothing-found::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.12);
+  width: 8px;
+  height: 32px;
+}
+ui-select .select-dropdown .options-container .select-option::-webkit-scrollbar-thumb, ui-select .select-dropdown .options-container .nothing-found::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+ui-select .select-dropdown .options-container .nothing-found.hidden {
+  display: none;
+}
+ui-select .select-dropdown .options-container .nothing-found:hover {
+  background-color: unset;
+  cursor: default;
+}
+ui-select .select-dropdown.hidden {
+  max-height: 0;
+  transition: max-height 0.25s;
+}
+
+/*# sourceMappingURL=index.css.map */
